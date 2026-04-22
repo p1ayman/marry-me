@@ -272,6 +272,9 @@
 
   // ===== PARALLAX =====
   function initParallax() {
+    // Полностью отключаем параллакс на мобильных — главная причина подлагиваний
+    if (window.innerWidth < 768) return;
+
     const heroBg = document.querySelector('.hero__bg');
     const heroContent = document.querySelector('.hero__content');
     const botanicals = document.querySelectorAll('.hero__botanical, .card__botanical, .footer__botanical');
@@ -281,29 +284,23 @@
       if (!ticking) {
         window.requestAnimationFrame(() => {
           const scrollY = window.scrollY;
-          const isMobile = window.innerWidth < 768;
 
-          // Parallax for hero background
           if (heroBg) {
             heroBg.style.transform = `translateY(${scrollY * 0.3}px)`;
           }
 
-          // Parallax for hero content (slowly moves up and fades)
           if (heroContent) {
             heroContent.style.transform = `translateY(${scrollY * -0.1}px)`;
             heroContent.style.opacity = Math.max(1 - scrollY / 600, 0);
           }
 
-          // Parallax and slight rotate for botanical images (только на ПК для производительности)
-          if (!isMobile) {
-            botanicals.forEach(bot => {
-              const rect = bot.getBoundingClientRect();
-              if (rect.top < window.innerHeight && rect.bottom > 0) {
-                const move = (window.innerHeight - rect.top) * 0.05;
-                bot.style.transform = `translateY(${move}px) rotate(${move * 0.05}deg)`;
-              }
-            });
-          }
+          botanicals.forEach(bot => {
+            const rect = bot.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+              const move = (window.innerHeight - rect.top) * 0.05;
+              bot.style.transform = `translateY(${move}px) rotate(${move * 0.05}deg)`;
+            }
+          });
 
           ticking = false;
         });
