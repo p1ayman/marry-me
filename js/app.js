@@ -224,7 +224,7 @@
 
     // Set map image based on guest type
     const mapImages = {
-      friends: 'img/IMG_3090.png',
+      friends: 'img/IMG_3090.jpg',
       relatives: 'img/для гостей.jpeg'
     };
 
@@ -254,6 +254,12 @@
       const lightness = Math.floor(Math.random() * 15 + 80); // 80-95 (ярче)
       const alpha = (Math.random() * 0.4 + 0.6).toFixed(2); // 0.6-1.0 (плотнее)
 
+      // Упрощенная тень для лучшей производительности на мобильных устройствах
+      const isMobile = window.innerWidth < 600;
+      const shadow = isMobile 
+        ? '0 0 10px currentColor' 
+        : '0 0 20px currentColor, 0 0 40px currentColor';
+
       particle.style.cssText = `
         width: ${size}px;
         height: ${size}px;
@@ -263,7 +269,7 @@
         background: hsla(${hue}, 100%, ${lightness}%, ${alpha});
         color: hsla(${hue}, 100%, ${lightness}%, ${alpha});
         --drift: ${drift}px;
-        box-shadow: 0 0 20px currentColor, 0 0 40px currentColor, 0 0 80px currentColor;
+        box-shadow: ${shadow};
       `;
 
       container.appendChild(particle);
@@ -275,30 +281,40 @@
     const heroBg = document.querySelector('.hero__bg');
     const heroContent = document.querySelector('.hero__content');
     const botanicals = document.querySelectorAll('.hero__botanical, .card__botanical, .footer__botanical');
+    let ticking = false;
 
     window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          const isMobile = window.innerWidth < 768;
 
-      // Parallax for hero background
-      if (heroBg) {
-        heroBg.style.transform = `translateY(${scrollY * 0.3}px)`;
+          // Parallax for hero background
+          if (heroBg) {
+            heroBg.style.transform = `translateY(${scrollY * 0.3}px)`;
+          }
+
+          // Parallax for hero content (slowly moves up and fades)
+          if (heroContent) {
+            heroContent.style.transform = `translateY(${scrollY * -0.1}px)`;
+            heroContent.style.opacity = Math.max(1 - scrollY / 600, 0);
+          }
+
+          // Parallax and slight rotate for botanical images (только на ПК для производительности)
+          if (!isMobile) {
+            botanicals.forEach(bot => {
+              const rect = bot.getBoundingClientRect();
+              if (rect.top < window.innerHeight && rect.bottom > 0) {
+                const move = (window.innerHeight - rect.top) * 0.05;
+                bot.style.transform = `translateY(${move}px) rotate(${move * 0.05}deg)`;
+              }
+            });
+          }
+
+          ticking = false;
+        });
+        ticking = true;
       }
-
-      // Parallax for hero content (slowly moves up and fades)
-      if (heroContent) {
-        heroContent.style.transform = `translateY(${scrollY * -0.1}px)`;
-        heroContent.style.opacity = Math.max(1 - scrollY / 600, 0);
-      }
-
-      // Parallax and slight rotate for botanical images
-      botanicals.forEach(bot => {
-        const rect = bot.getBoundingClientRect();
-        // Check if element is in viewport
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-          const move = (window.innerHeight - rect.top) * 0.05;
-          bot.style.transform = `translateY(${move}px) rotate(${move * 0.05}deg)`;
-        }
-      });
     }, { passive: true });
   }
 
