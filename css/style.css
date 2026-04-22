@@ -73,21 +73,13 @@ body {
   overflow: hidden;
 }
 
-/* На мобильных: absolute вместо fixed, чтобы не перерисовывать при скролле */
-@media (max-width: 767px) {
-  .particles {
-    position: absolute;
-    height: 300vh;
-  }
-}
-
 .particle {
   position: absolute;
   border-radius: 50%;
   opacity: 0;
   animation: particleFloat linear infinite;
   will-change: transform, opacity;
-  box-shadow: 0 0 6px currentColor;
+  box-shadow: 0 0 8px currentColor, 0 0 12px currentColor;
 }
 
 @media (min-width: 768px) {
