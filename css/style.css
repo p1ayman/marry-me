@@ -50,7 +50,6 @@ body {
   background-image:
     radial-gradient(ellipse at 20% 50%, rgba(184, 149, 106, 0.05) 0%, transparent 60%),
     radial-gradient(ellipse at 80% 30%, rgba(212, 184, 150, 0.04) 0%, transparent 50%);
-  background-attachment: fixed;
 }
 
 /* ===== Scrollbar ===== */
