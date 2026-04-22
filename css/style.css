@@ -78,33 +78,33 @@ body {
   border-radius: 50%;
   opacity: 0;
   animation: particleFloat linear infinite;
-  box-shadow: 0 0 12px currentColor, 0 0 24px currentColor, 0 0 40px currentColor, 0 0 60px rgba(212, 184, 150, 0.9);
-  filter: brightness(1.4) drop-shadow(0 0 6px currentColor);
+  will-change: transform, opacity;
+}
+
+/* Тени только на десктопе */
+@media (min-width: 768px) {
+  .particle {
+    box-shadow: 0 0 8px currentColor, 0 0 16px currentColor;
+  }
 }
 
 @keyframes particleFloat {
   0% {
     opacity: 0;
-    transform: translateY(100vh) translateX(0) scale(0);
+    transform: translateY(100vh) translateX(0) scale(0.5);
   }
-  3% {
-    opacity: 0.8;
+  10% {
+    opacity: 0.6;
   }
-  5% {
-    opacity: 1;
+  50% {
+    opacity: 0.4;
   }
-  20%, 40%, 60%, 80% {
-    opacity: 0.85;
-  }
-  30%, 50%, 70%, 90% {
-    opacity: 1;
-  }
-  95% {
-    opacity: 0.85;
+  90% {
+    opacity: 0.3;
   }
   100% {
     opacity: 0;
-    transform: translateY(-20vh) translateX(var(--drift, 0px)) scale(1.2);
+    transform: translateY(-20vh) translateX(var(--drift, 0px)) scale(1);
   }
 }
 
@@ -230,7 +230,7 @@ body {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: url('../img/hero-bg.png') center center / cover no-repeat;
+  background: url('../img/hero-bg.jpg') center center / cover no-repeat;
 }
 
 /* Subtle vignette + bottom gradient to transition into light content */

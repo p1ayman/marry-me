@@ -239,26 +239,21 @@
     const container = document.getElementById('particles');
     if (!container) return;
 
-    const count = window.innerWidth < 600 ? 40 : 60;
+    const isMobile = window.innerWidth < 768;
+    const count = isMobile ? 15 : 40;
 
     for (let i = 0; i < count; i++) {
       const particle = document.createElement('div');
       particle.className = 'particle';
 
-      const size = Math.random() * 6 + 5;
+      const size = isMobile ? (Math.random() * 4 + 3) : (Math.random() * 5 + 4);
       const left = Math.random() * 100;
-      const duration = Math.random() * 8 + 6;
+      const duration = Math.random() * 10 + 8;
       const delay = Math.random() * duration * -1;
-      const hue = Math.random() > 0.5 ? '45' : '38'; // Золотой
-      const drift = (Math.random() - 0.5) * 60;
-      const lightness = Math.floor(Math.random() * 15 + 80); // 80-95 (ярче)
-      const alpha = (Math.random() * 0.4 + 0.6).toFixed(2); // 0.6-1.0 (плотнее)
-
-      // Упрощенная тень для лучшей производительности на мобильных устройствах
-      const isMobile = window.innerWidth < 600;
-      const shadow = isMobile 
-        ? '0 0 10px currentColor' 
-        : '0 0 20px currentColor, 0 0 40px currentColor';
+      const hue = Math.random() > 0.5 ? '45' : '38';
+      const drift = (Math.random() - 0.5) * 40;
+      const lightness = Math.floor(Math.random() * 10 + 75); // 75-85 (мягче)
+      const alpha = (Math.random() * 0.3 + 0.3).toFixed(2); // 0.3-0.6 (нежнее)
 
       particle.style.cssText = `
         width: ${size}px;
@@ -266,10 +261,9 @@
         left: ${left}%;
         animation-duration: ${duration}s;
         animation-delay: ${delay}s;
-        background: hsla(${hue}, 100%, ${lightness}%, ${alpha});
-        color: hsla(${hue}, 100%, ${lightness}%, ${alpha});
+        background: hsla(${hue}, 80%, ${lightness}%, ${alpha});
+        color: hsla(${hue}, 80%, ${lightness}%, ${alpha});
         --drift: ${drift}px;
-        box-shadow: ${shadow};
       `;
 
       container.appendChild(particle);
