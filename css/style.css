@@ -79,12 +79,12 @@ body {
   opacity: 0;
   animation: particleFloat linear infinite;
   will-change: transform, opacity;
+  box-shadow: 0 0 6px currentColor;
 }
 
-/* Тени только на десктопе */
 @media (min-width: 768px) {
   .particle {
-    box-shadow: 0 0 8px currentColor, 0 0 16px currentColor;
+    box-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
   }
 }
 
@@ -94,13 +94,13 @@ body {
     transform: translateY(100vh) translateX(0) scale(0.5);
   }
   10% {
-    opacity: 0.6;
+    opacity: 0.8;
   }
   50% {
-    opacity: 0.4;
+    opacity: 0.7;
   }
   90% {
-    opacity: 0.3;
+    opacity: 0.5;
   }
   100% {
     opacity: 0;

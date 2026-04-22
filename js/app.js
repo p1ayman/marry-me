@@ -246,14 +246,14 @@
       const particle = document.createElement('div');
       particle.className = 'particle';
 
-      const size = isMobile ? (Math.random() * 4 + 3) : (Math.random() * 5 + 4);
+      const size = isMobile ? (Math.random() * 5 + 4) : (Math.random() * 6 + 4);
       const left = Math.random() * 100;
       const duration = Math.random() * 10 + 8;
       const delay = Math.random() * duration * -1;
       const hue = Math.random() > 0.5 ? '45' : '38';
       const drift = (Math.random() - 0.5) * 40;
-      const lightness = Math.floor(Math.random() * 10 + 75); // 75-85 (мягче)
-      const alpha = (Math.random() * 0.3 + 0.3).toFixed(2); // 0.3-0.6 (нежнее)
+      const lightness = Math.floor(Math.random() * 10 + 78); // 78-88
+      const alpha = (Math.random() * 0.3 + 0.5).toFixed(2); // 0.5-0.8
 
       particle.style.cssText = `
         width: ${size}px;
@@ -261,8 +261,8 @@
         left: ${left}%;
         animation-duration: ${duration}s;
         animation-delay: ${delay}s;
-        background: hsla(${hue}, 80%, ${lightness}%, ${alpha});
-        color: hsla(${hue}, 80%, ${lightness}%, ${alpha});
+        background: hsla(${hue}, 90%, ${lightness}%, ${alpha});
+        color: hsla(${hue}, 90%, ${lightness}%, ${alpha});
         --drift: ${drift}px;
       `;
 
