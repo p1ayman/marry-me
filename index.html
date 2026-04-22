@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Свадебное приглашение — Александр и Ирина, 19–20 июня 2026, Чебоксары">
+  <title>Александр & Ирина — Приглашение на свадьбу</title>
+  <link rel="stylesheet" href="css/style.css?v=11">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💍</text></svg>">
+</head>
+<body>
+
+  <!-- Floating particles container -->
+  <div class="particles" id="particles"></div>
+
+  <!-- ===== ERROR SCREEN (no guest param) ===== -->
+  <div class="error-screen" id="errorScreen">
+    <div class="error-screen__icon">💌</div>
+    <h1 class="error-screen__title">Приглашение</h1>
+    <p class="error-screen__text">
+      Это персональное приглашение на свадьбу.<br>
+      Пожалуйста, используйте ссылку, которую вам отправили.
+    </p>
+  </div>
+
+  <!-- ===== ENVELOPE SCREEN (splash for each guest) ===== -->
+  <div class="envelope-screen" id="envelopeScreen">
+    <div class="envelope-particles" id="envelopeParticles"></div>
+    <div class="envelope-card" id="envelopeCard">
+      <div class="envelope-wax-seal">
+        <svg class="rings-svg" viewBox="0 0 80 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Left ring -->
+          <circle cx="28" cy="24" r="18" stroke="#c9a87c" stroke-width="4.5" fill="none"/>
+          <circle cx="28" cy="24" r="14" stroke="#e8cfa0" stroke-width="1" fill="none" opacity="0.5"/>
+          <!-- Right ring (overlaps) -->
+          <circle cx="52" cy="24" r="18" stroke="#b8956a" stroke-width="4.5" fill="none"/>
+          <circle cx="52" cy="24" r="14" stroke="#d4b896" stroke-width="1" fill="none" opacity="0.5"/>
+          <!-- Overlap mask: redraw left ring arc in front where rings cross -->
+          <path d="M 46.5 10.5 A 18 18 0 0 1 46.5 37.5" stroke="#c9a87c" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p class="envelope-from">Александр &amp; Ирина</p>
+      <div class="envelope-line"></div>
+      <p class="envelope-to-label">для</p>
+      <h1 class="envelope-guest-name" id="envelopeGuestName">Гостя</h1>
+      <div class="envelope-line"></div>
+      <p class="envelope-date" id="envelopeDate">— июня 2026 · Чебоксары</p>
+      <button class="envelope-open-btn" id="envelopeOpenBtn">
+        <span class="envelope-open-btn__icon">💌</span>
+        <span>Открыть приглашение</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <div class="app-content" id="appContent">
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero__bg"></div>
+      <div class="hero__overlay"></div>
+      <div class="hero__content">
+        <p class="hero__label">Приглашение на свадьбу</p>
+        <h1 class="hero__names">
+          Александр
+          <span class="hero__ampersand">и</span>
+          <span>Ирина</span>
+        </h1>
+        <p class="hero__date" id="heroDate">19 — 20 июня 2026</p>
+      </div>
+      <div class="hero__scroll-hint">
+        <div class="hero__scroll-arrow"></div>
+      </div>
+    </section>
+
+    <!-- ORNAMENT -->
+    <div class="ornament-divider reveal">
+      <span class="ornament-divider__line"></span>
+      <span class="ornament-divider__dot"></span>
+      <span class="ornament-divider__line"></span>
+    </div>
+
+    <!-- INVITATION -->
+    <section class="invitation" id="invitation">
+      <div class="container">
+        <div class="card reveal">
+          <h2 class="invitation__greeting" id="greetingText">
+            Дорогие гости!
+          </h2>
+          <div class="invitation__divider">
+            <span></span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="currentColor" opacity="0.3"/></svg>
+            <span></span>
+          </div>
+          <p class="invitation__text" id="invitationText"></p>
+          <p class="invitation__text invitation__text--secondary" id="invitationTextSecondary"></p>
+          <p class="invitation__script">Ждем вас на нашем празднике</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DETAILS -->
+    <section class="details" id="details">
+      <div class="container">
+        <div class="card reveal">
+          <h2 class="section-title">Детали <span>мероприятия</span></h2>
+          <div class="details-rows">
+            <div class="detail-row">
+              <span class="detail-row__icon">📍</span>
+              <div class="detail-row__content">
+                <span class="detail-row__label">Место</span>
+                <span class="detail-row__value" id="venueName">—</span>
+              </div>
+            </div>
+            <div class="detail-row">
+              <span class="detail-row__icon">🎉</span>
+              <div class="detail-row__content">
+                <span class="detail-row__label">Формат</span>
+                <span class="detail-row__value" id="venueType">—</span>
+              </div>
+            </div>
+            <div class="detail-row">
+              <span class="detail-row__icon">📅</span>
+              <div class="detail-row__content">
+                <span class="detail-row__label">Дата</span>
+                <span class="detail-row__value" id="eventDate">—</span>
+              </div>
+            </div>
+            <div class="detail-row">
+              <span class="detail-row__icon">⏰</span>
+              <div class="detail-row__content">
+                <span class="detail-row__label">Начало</span>
+                <span class="detail-row__value" id="eventTime">—</span>
+              </div>
+            </div>
+            <div class="detail-row">
+              <span class="detail-row__icon">🏠</span>
+              <div class="detail-row__content">
+                <span class="detail-row__label">Адрес</span>
+                <span class="detail-row__value" id="eventAddress">—</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COUNTDOWN -->
+    <section class="countdown" id="countdown">
+      <div class="container">
+        <div class="card card--accent reveal">
+          <p class="countdown__title">До нашего торжества осталось</p>
+          <div class="countdown__grid">
+            <div class="countdown__item">
+              <span class="countdown__number" id="countDays">00</span>
+              <span class="countdown__label">дней</span>
+            </div>
+            <span class="countdown__separator">:</span>
+            <div class="countdown__item">
+              <span class="countdown__number" id="countHours">00</span>
+              <span class="countdown__label">часов</span>
+            </div>
+            <span class="countdown__separator">:</span>
+            <div class="countdown__item">
+              <span class="countdown__number" id="countMinutes">00</span>
+              <span class="countdown__label">минут</span>
+            </div>
+            <span class="countdown__separator">:</span>
+            <div class="countdown__item">
+              <span class="countdown__number" id="countSeconds">00</span>
+              <span class="countdown__label">секунд</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAP -->
+    <section class="map-section" id="mapSection">
+      <div class="container">
+        <div class="card reveal">
+          <h2 class="section-title">Как <span>добраться</span></h2>
+          <a class="map-image-link" id="mapImageLink" href="#" target="_blank" rel="noopener">
+            <img class="map-image" id="mapImage" src="img/map-friends.png" alt="Карта">
+          </a>
+          <a class="map-button" id="mapLink" href="#" target="_blank" rel="noopener">
+            <span class="map-button__icon">📍</span>
+            <span class="map-button__text">
+              <span class="map-button__address" id="mapAddress">—</span>
+              <span class="map-button__cta">Открыть в Яндекс Картах →</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__ornament reveal">
+          <span class="ornament-divider__line"></span>
+          <span class="ornament-divider__dot"></span>
+          <span class="ornament-divider__line"></span>
+        </div>
+        <p class="footer__text reveal">С любовью,</p>
+        <p class="footer__names reveal reveal-delay-1">Александр & Ирина</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="js/guests.js?v=11"></script>
+  <script src="js/app.js?v=11"></script>
+</body>
+</html>
