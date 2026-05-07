@@ -12,9 +12,9 @@
       name: 'Ресторан «Терраса»',
       type: 'Банкетный зал',
       date: '19 июня 2026',
-      time: '17:00',
+      time: '16:00',
       address: 'г. Чебоксары, ул. А.В. Асламаса, 2Б',
-      datetime: new Date('2026-06-19T17:00:00+03:00'),
+      datetime: new Date('2026-06-19T16:00:00+03:00'),
       mapQuery: 'Чебоксары, улица А.В. Асламаса, 2Б',
       mapCoords: [56.1316, 47.2519]
     },
@@ -225,7 +225,7 @@
     // Set map image based on guest type
     const mapImages = {
       friends: 'img/IMG_3090.jpg',
-      relatives: 'img/для гостей.jpeg'
+      relatives: 'img/для гостей.jpg'
     };
 
     if (mapImage) mapImage.src = mapImages[guestType] || mapImages.friends;
