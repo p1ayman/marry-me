@@ -10,9 +10,9 @@
  */
 const GUESTS = {
   // === РОДСТВЕННИКИ (День 1 — Ресторан «Терраса», 19 июня) ===
-  "viktor-tatyana": {
-    name: "Виктор и Татьяна",
-    nameGenitive: "Виктора и Татьяны",
+  "viktor-elena": {
+    name: "Виктор и Елена",
+    nameGenitive: "Виктора и Елены",
     type: "relatives"
   },
   "petr-tatyana": {
@@ -20,14 +20,34 @@ const GUESTS = {
     nameGenitive: "Петра и Татьяны",
     type: "relatives"
   },
-  "alina-aleksandr": {
-    name: "Алина и Александр",
-    nameGenitive: "Алины и Александра",
+  "aleksandr-alina": {
+    name: "Александр и Алина",
+    nameGenitive: "Александра и Алины",
     type: "relatives"
   },
-  "mama-papa": {
-    name: "Мама и папа",
-    nameGenitive: "мамы и папы",
+  "vladimir-iraida": {
+    name: "Владимир и Ираида",
+    nameGenitive: "Владимира и Ираиды",
+    type: "relatives"
+  },
+  "anton": {
+    name: "Антон",
+    nameGenitive: "Антона",
+    type: "relatives"
+  },
+  "papa-mama": {
+    name: "Папа и Мама",
+    nameGenitive: "папы и мамы",
+    type: "relatives"
+  },
+  "vladislav-svetlana": {
+    name: "Владислав и Светлана",
+    nameGenitive: "Владислава и Светланы",
+    type: "relatives"
+  },
+  "valery-lyubov": {
+    name: "Валерий и Любовь",
+    nameGenitive: "Валерия и Любови",
     type: "relatives"
   },
   "polina": {
@@ -40,31 +60,31 @@ const GUESTS = {
     nameGenitive: "бабули",
     type: "relatives"
   },
-  "nadezhda-andrey": {
-    name: "Надежда и Андрей",
-    nameGenitive: "Надежды и Андрея",
+  "andrey-nadezhda": {
+    name: "Андрей и Надежда",
+    nameGenitive: "Андрея и Надежды",
     type: "relatives"
   },
-  "anton-masha": {
-    name: "Антон и Маша",
-    nameGenitive: "Антона и Маши",
+  "anton-anastasia": {
+    name: "Антон и Анастасия",
+    nameGenitive: "Антона и Анастасии",
     type: "relatives"
   },
-  "anya-yaroslav": {
-    name: "Аня и Ярослав",
-    nameGenitive: "Ани и Ярослава",
+  "yaroslav-anna": {
+    name: "Ярослав и Анна",
+    nameGenitive: "Ярослава и Анны",
     type: "relatives"
   },
 
   // === ДРУЗЬЯ (День 2 — Гостевой дом «На пихте», 20 июня) ===
-  "rustam-masha": {
-    name: "Рустам и Маша",
-    nameGenitive: "Рустама и Маши",
+  "ruslan-katya": {
+    name: "Руслан и Катя",
+    nameGenitive: "Руслана и Кати",
     type: "friends"
   },
-  "artem-lena": {
-    name: "Артем и Лена",
-    nameGenitive: "Артема и Лены",
+  "artem-zhenya": {
+    name: "Артем и Женя",
+    nameGenitive: "Артема и Жени",
     type: "friends"
   },
   "dennis-anya": {
@@ -72,14 +92,14 @@ const GUESTS = {
     nameGenitive: "Дэнниса и Ани",
     type: "friends"
   },
-  "dmitry-lena": {
-    name: "Дмитрий и Лена",
-    nameGenitive: "Дмитрия и Лены",
+  "vanya-lena": {
+    name: "Ваня и Лена",
+    nameGenitive: "Вани и Лены",
     type: "friends"
   },
-  "dmitry-darya": {
-    name: "Дмитрий и Дарья",
-    nameGenitive: "Дмитрия и Дарьи",
+  "vanya-dasha": {
+    name: "Ваня и Даша",
+    nameGenitive: "Вани и Даши",
     type: "friends"
   },
   "aleksandr": {
@@ -87,19 +107,24 @@ const GUESTS = {
     nameGenitive: "Александра",
     type: "friends"
   },
-  "yulia-darya": {
-    name: "Юля и Дарья",
-    nameGenitive: "Юли и Дарьи",
+  "lesha-masha": {
+    name: "Леша и Маша",
+    nameGenitive: "Леши и Маши",
     type: "friends"
   },
-  "sara-sonya": {
-    name: "Сара и Соня",
-    nameGenitive: "Сары и Сони",
+  "sasha-sonya": {
+    name: "Саша и Соня",
+    nameGenitive: "Саши и Сони",
     type: "friends"
   },
-  "yulia-alya": {
-    name: "Юля и Аля",
-    nameGenitive: "Юли и Али",
+  "lesha-olya": {
+    name: "Леша и Оля",
+    nameGenitive: "Леши и Оли",
+    type: "friends"
+  },
+  "sasha-liza": {
+    name: "Саша и Лиза",
+    nameGenitive: "Саши и Лизы",
     type: "friends"
   },
   "artem-anya": {
@@ -107,14 +132,14 @@ const GUESTS = {
     nameGenitive: "Артема и Ани",
     type: "friends"
   },
-  "marina-andrey": {
-    name: "Марина и Андрей",
-    nameGenitive: "Марины и Андрея",
+  "andrey-marina": {
+    name: "Андрей и Марина",
+    nameGenitive: "Андрея и Марины",
     type: "friends"
   },
-  "elina-fedya": {
-    name: "Элина и Федя",
-    nameGenitive: "Элины и Феди",
+  "fedya-elina": {
+    name: "Федя и Элина",
+    nameGenitive: "Феди и Элины",
     type: "friends"
   },
   "katerina": {
