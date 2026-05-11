@@ -33,11 +33,12 @@ const GUESTS = {
   "anton": {
     name: "Антон",
     nameGenitive: "Антона",
+    gender: "m",
     type: "relatives"
   },
   "papa-mama": {
     name: "Папа и Мама",
-    nameGenitive: "папы и мамы",
+    nameGenitive: "Папы и Мамы",
     type: "relatives"
   },
   "vladislav-svetlana": {
@@ -53,11 +54,13 @@ const GUESTS = {
   "polina": {
     name: "Полина",
     nameGenitive: "Полины",
+    gender: "f",
     type: "relatives"
   },
   "babulya": {
     name: "Бабуля",
-    nameGenitive: "бабули",
+    nameGenitive: "Бабули",
+    gender: "f",
     type: "relatives"
   },
   "andrey-nadezhda": {
@@ -105,6 +108,7 @@ const GUESTS = {
   "aleksandr": {
     name: "Александр",
     nameGenitive: "Александра",
+    gender: "m",
     type: "friends"
   },
   "lesha-masha": {
@@ -145,26 +149,31 @@ const GUESTS = {
   "katerina": {
     name: "Екатерина",
     nameGenitive: "Екатерины",
+    gender: "f",
     type: "friends"
   },
   "anastasia": {
     name: "Анастасия",
     nameGenitive: "Анастасии",
+    gender: "f",
     type: "friends"
   },
   "nadya": {
     name: "Надя",
     nameGenitive: "Нади",
+    gender: "f",
     type: "friends"
   },
   "veronika": {
     name: "Вероника",
     nameGenitive: "Вероники",
+    gender: "f",
     type: "friends"
   },
   "irina": {
     name: "Ирина",
     nameGenitive: "Ирины",
+    gender: "f",
     type: "friends"
   }
 };

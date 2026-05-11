@@ -107,7 +107,7 @@
     const venue = VENUES[guest.type];
 
     // Personalized greeting
-    setGreeting(guest.name);
+    setGreeting(guest);
 
     // Invitation text (different for friends vs relatives)
     setInvitationText(guest.type);
@@ -135,14 +135,19 @@
   }
 
   // ===== GREETING =====
-  function setGreeting(guestName) {
+  function setGreeting(guest) {
     const el = document.getElementById('greetingText');
+    const guestName = guest.name;
     const names = guestName.split(' и ');
     let greeting;
     if (names.length > 1) {
       greeting = `Дорогие ${guestName}!`;
     } else {
-      greeting = `Дорогая ${guestName}!`;
+      if (guest.gender === 'm') {
+        greeting = `Дорогой ${guestName}!`;
+      } else {
+        greeting = `Дорогая ${guestName}!`;
+      }
     }
     el.textContent = greeting;
   }
