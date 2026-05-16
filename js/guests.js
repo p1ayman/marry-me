@@ -55,7 +55,8 @@ const GUESTS = {
     name: "Полина",
     nameGenitive: "Полины",
     gender: "f",
-    type: "relatives"
+    type: "relatives",
+    informal: true
   },
   "babulya": {
     name: "Бабуля",
@@ -164,7 +165,8 @@ const GUESTS = {
     name: "Надя",
     nameGenitive: "Нади",
     gender: "f",
-    type: "friends"
+    type: "friends",
+    informal: true
   },
   "veronika": {
     name: "Вероника",
