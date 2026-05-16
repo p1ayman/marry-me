@@ -150,13 +150,15 @@ const GUESTS = {
     name: "Екатерина",
     nameGenitive: "Екатерины",
     gender: "f",
-    type: "friends"
+    type: "friends",
+    informal: true
   },
   "anastasia": {
     name: "Анастасия",
     nameGenitive: "Анастасии",
     gender: "f",
-    type: "friends"
+    type: "friends",
+    informal: true
   },
   "nadya": {
     name: "Надя",
@@ -168,12 +170,14 @@ const GUESTS = {
     name: "Вероника",
     nameGenitive: "Вероники",
     gender: "f",
-    type: "friends"
+    type: "friends",
+    informal: true
   },
   "irina": {
     name: "Ирина",
     nameGenitive: "Ирины",
     gender: "f",
-    type: "friends"
+    type: "friends",
+    informal: true
   }
 };

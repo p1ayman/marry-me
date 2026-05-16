@@ -112,8 +112,8 @@
     // Personalized greeting
     setGreeting(guest);
 
-    // Invitation text (different for friends vs relatives)
-    setInvitationText(guest.type);
+    // Invitation text (different for friends vs relatives, and formal vs informal)
+    setInvitationText(guest);
 
     // Hero date — show only relevant date
     setHeroDate(venue);
@@ -178,24 +178,37 @@
   }
 
   // ===== INVITATION TEXT =====
-  function setInvitationText(guestType) {
+  function setInvitationText(guest) {
     const el = document.getElementById('invitationText');
     const elSecondary = document.getElementById('invitationTextSecondary');
+    const guestType = guest.type;
+    const isInformal = guest.informal === true;
 
     let mainText;
     const SECONDARY = {
-      friends: 'Отмечаем в неформальной обстановке. Просто будьте рядом, остальное мы берём на себя.',
+      friendsFormal: 'Отмечаем в неформальной обстановке. Просто будьте рядом, остальное мы берём на себя.',
+      friendsInformal: 'Отмечаем в неформальной обстановке. Просто будь рядом, остальное мы берём на себя.',
       relatives: 'Будем рады разделить с вами этот вечер за торжественным ужином.'
     };
 
     if (guestType === 'relatives') {
       mainText = 'Один день в этом году станет для нас особенным: мы хотим провести его в кругу близких и дорогих людей. С большим удовольствием приглашаем вас на нашу свадьбу.';
+    } else if (isInformal) {
+      mainText = 'С большим удовольствием приглашаем тебя на наш праздник – свадьбу.';
     } else {
       mainText = 'С большим удовольствием приглашаем Вас на наш праздник – свадьбу.';
     }
 
     if (el) el.textContent = mainText;
-    if (elSecondary) elSecondary.textContent = SECONDARY[guestType] || SECONDARY.friends;
+    if (elSecondary) {
+      if (guestType === 'relatives') {
+        elSecondary.textContent = SECONDARY.relatives;
+      } else if (isInformal) {
+        elSecondary.textContent = SECONDARY.friendsInformal;
+      } else {
+        elSecondary.textContent = SECONDARY.friendsFormal;
+      }
+    }
   }
 
   // ===== HERO DATE =====
