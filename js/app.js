@@ -181,6 +181,7 @@
   function setInvitationText(guest) {
     const el = document.getElementById('invitationText');
     const elSecondary = document.getElementById('invitationTextSecondary');
+    const elScript = document.getElementById('invitationScript');
     const guestType = guest.type;
     const isInformal = guest.informal === true;
 
@@ -208,6 +209,9 @@
       } else {
         elSecondary.textContent = SECONDARY.friendsFormal;
       }
+    }
+    if (elScript) {
+      elScript.textContent = isInformal ? 'Ждём тебя на нашем празднике!' : 'Ждём вас на нашем празднике!';
     }
   }
 
