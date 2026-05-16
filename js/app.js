@@ -106,6 +106,9 @@
 
     const venue = VENUES[guest.type];
 
+    // Update meta tags for social sharing
+    updateMetaTags(guest, venue);
+
     // Personalized greeting
     setGreeting(guest);
 
@@ -126,12 +129,34 @@
 
     // Floating particles
     initParticles();
-    
+
     // Parallax
     initParallax();
 
     // Scroll animations
     initScrollAnimations();
+  }
+
+  // ===== UPDATE META TAGS FOR SOCIAL SHARING =====
+  function updateMetaTags(guest, venue) {
+    const dateStr = venue.date.split(' ')[0] + ' июня 2026';
+    const description = `Свадебное приглашение — Александр и Ирина, ${dateStr}, Чебоксары`;
+
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta');
+      metaDescription.name = 'description';
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.content = description;
+
+    let ogDescription = document.querySelector('meta[property="og:description"]');
+    if (!ogDescription) {
+      ogDescription = document.createElement('meta');
+      ogDescription.setAttribute('property', 'og:description');
+      document.head.appendChild(ogDescription);
+    }
+    ogDescription.content = description;
   }
 
   // ===== GREETING =====
