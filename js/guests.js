@@ -83,6 +83,13 @@ const GUESTS = {
   },
 
   // === ДРУЗЬЯ (День 2 — Гостевой дом «На пихте», 20 июня) ===
+  "dima": {
+    name: "Дима",
+    nameGenitive: "Димы",
+    gender: "m",
+    type: "friends",
+    informal: true
+  },
   "ruslan-katya": {
     name: "Руслан и Катя",
     nameGenitive: "Руслана и Кати",
