@@ -39,7 +39,8 @@ const GUESTS = {
   "papa-mama": {
     name: "Папа и Мама",
     nameGenitive: "Папы и Мамы",
-    type: "relatives"
+    type: "relatives",
+    signature: "love"
   },
   "vladislav-svetlana": {
     name: "Владислав и Светлана",

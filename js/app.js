@@ -112,6 +112,9 @@
     // Invitation text (different for friends vs relatives, and formal vs informal)
     setInvitationText(guest);
 
+    // Signature (different for relatives vs friends)
+    setSignature(guest);
+
     // Hero date — show only relevant date
     setHeroDate(venue);
 
@@ -188,6 +191,18 @@
     }
     if (elScript) {
       elScript.textContent = isInformal ? 'Ждём тебя на нашем празднике!' : 'Ждём вас на нашем празднике!';
+    }
+  }
+
+  // ===== SIGNATURE =====
+  function setSignature(guest) {
+    const el = document.getElementById('footerSignature');
+    if (!el) return;
+
+    if (guest.signature === 'love') {
+      el.textContent = 'С любовью,';
+    } else {
+      el.textContent = 'С уважением,';
     }
   }
 
