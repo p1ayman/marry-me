@@ -110,7 +110,8 @@ const GUESTS = {
     name: "Александр",
     nameGenitive: "Александра",
     gender: "m",
-    type: "friends"
+    type: "friends",
+    informal: true
   },
   "lesha-masha": {
     name: "Леша и Маша",
