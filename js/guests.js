@@ -34,7 +34,8 @@ const GUESTS = {
     name: "Антон",
     nameGenitive: "Антона",
     gender: "m",
-    type: "relatives"
+    type: "relatives",
+    informal: true
   },
   "papa-mama": {
     name: "Папа и Мама",
