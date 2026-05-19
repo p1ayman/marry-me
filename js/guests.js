@@ -37,6 +37,11 @@ const GUESTS = {
     type: "relatives",
     informal: true
   },
+  "albina-volodya": {
+    name: "Альбина и Володя",
+    nameGenitive: "Альбины и Володи",
+    type: "relatives"
+  },
   "papa-mama": {
     name: "Папа и Мама",
     nameGenitive: "Папы и Мамы",
