@@ -132,9 +132,9 @@ const GUESTS = {
     nameGenitive: "Саши и Сони",
     type: "friends"
   },
-  "lesha-olya": {
-    name: "Леша и Оля",
-    nameGenitive: "Леши и Оли",
+  "lesha-alena": {
+    name: "Леша и Алена",
+    nameGenitive: "Леши и Алены",
     type: "friends"
   },
   "sasha-liza": {
